@@ -39,20 +39,24 @@ for x in votes:
 
 
 # Your task is to create a Python script that analyzes the votes and calculates each of the following:
-# print(Election Results)
-# print(-----------------------------)
+print("Election Results")
+print("-----------------------------")
 
 # The total number of votes cast
-print(count)
-
-# A complete list of candidates who received votes
-print(candidates)
-
-# The percentage of votes each candidate won
-print(percentages)
-
-# The total number of votes each candidate won
-print(votes)
+print(f'Total Votes: {count}')
+for candidate in candidates:
+    print(f'{candidate}: {percentages[candidate]}% ({votes[candidate]})')
 
 # The winner of the election based on popular vote.
-print(winner)
+print(f'Winner: {winner}')
+
+textpath = os.path.join('Analysis', 'output.txt')
+with open(textpath,'w') as textfile:
+    textfile.write("Election Results\n")
+    textfile.write("-----------------------------\n")
+    textfile.write(f"Total Votes: {count}\n")
+    textfile.write(f"Khan: {percentages["Khan"]}% ({votes["Khan"]})\n")
+    textfile.write(f"Correy: {percentages["Correy"]}% ({votes["Correy"]})\n")
+    textfile.write(f"Li: {percentages["Li"]}% ({votes["Li"]})\n")
+    textfile.write(f"O'Tooley: {percentages["O'Tooley"]}% ({votes["O'Tooley"]})\n")
+    textfile.write(f"Winner: {winner}")
